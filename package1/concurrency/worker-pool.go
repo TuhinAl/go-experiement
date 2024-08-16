@@ -21,4 +21,5 @@ func process(index int, waitGroup *sync.WaitGroup) {
 	fmt.Println("started Goroutine ", index)
 	time.Sleep(2 * time.Second)
 	fmt.Printf("Goroutine %d ended\n", index)
+	waitGroup.Done()
 }
