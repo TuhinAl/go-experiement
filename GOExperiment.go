@@ -102,17 +102,17 @@ func main() {
 	fmt.Println(var_2)
 	fmt.Printf("type of name1 is: %T\n", name1)*/
 
-	var1, var2, var3 := 3, 4, "Dhaka"
-	fmt.Println("var3: ", var3)
+	/*	var1, var2, var3 := 3, 4, "Dhaka"
+		fmt.Println("var3: ", var3)
 
-	if var1 < var2 {
-		fmt.Print("inside if condition.")
-		var4 := 100
-		var3 := "Khulna"
-		fmt.Println("var3(inside scope): ", var3)
-		fmt.Println("var3: ", var4)
-	}
-	fmt.Println("var3: ", var3)
+		if var1 < var2 {
+			fmt.Print("inside if condition.")
+			var4 := 100
+			var3 := "Khulna"
+			fmt.Println("var3(inside scope): ", var3)
+			fmt.Println("var3: ", var4)
+		}
+		fmt.Println("var3: ", var3)*/
 	//fmt.Println("var4: ", var4)
 
 }
