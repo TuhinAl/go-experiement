@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-func main() {
+/* func main() {
 	//arrayDemo()
 	sliceDemo()
 }
-
+*/
 func arrayDemo() {
 
 	var division [3]string
