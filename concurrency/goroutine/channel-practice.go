@@ -1,4 +1,4 @@
-package main
+package goroutine
 
 import (
 	"fmt"
@@ -59,7 +59,7 @@ func main7() {
 	}
 }
 
-func channelCreate() {
+func ChannelCreate() {
 	var channel1 chan int
 	if channel1 == nil {
 		fmt.Println("channel a is nil, going to define it")

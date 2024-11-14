@@ -1,4 +1,4 @@
-package main
+package arrayslicemap
 
 import "fmt"
 
@@ -11,6 +11,6 @@ func main() {
 	}
 }
 
-func sliceDemo() {
+func sliceDemo2() {
 
 }

@@ -1,4 +1,4 @@
-package main
+package error__test
 
 import (
 	"errors"

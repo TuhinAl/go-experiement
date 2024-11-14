@@ -1,4 +1,4 @@
-package errorhandling
+package error__test
 
 //import "fmt"
 
