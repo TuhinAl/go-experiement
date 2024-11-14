@@ -1,10 +1,10 @@
-package main
+package arrayslicemap
 
 import (
 	"fmt"
 )
 
-func main() {
+func main2() {
 
 	//slice();
 	//maps()
@@ -12,7 +12,7 @@ func main() {
 	pointerWithArray()
 }
 
-func slice() {
+func Slice() {
 	//var array [5]int
 	array := [...]int{10, 20, 30, 40, 50}
 	fmt.Println(array)

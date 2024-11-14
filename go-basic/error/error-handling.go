@@ -1,4 +1,4 @@
-package main
+package errorhandling
 
 //import "fmt"
 
@@ -9,7 +9,3 @@ b.The Importance of Error checking in GO
 c. Custom Error/ error raping
 d. Defer, Panic and recover
 */
-
-func main() {
-
-}

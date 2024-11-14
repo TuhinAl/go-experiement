@@ -1,10 +1,10 @@
-package main
+package datatypeoperator
 
 import (
 	"fmt"
 )
 
-func main() {
+func main6() {
 
 	// if else
 	/*num := -11

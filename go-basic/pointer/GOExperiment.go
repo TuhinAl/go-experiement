@@ -1,10 +1,10 @@
-package main
+package goexperiment
 
 import (
 	"fmt"
 )
 
-func main() {
+func main10() {
 	/*fmt.Println("Hello World!")
 	fmt.Println("Alauddin Tuhin ") // This is a comment
 

@@ -1,4 +1,4 @@
-package dir_1
+package structs
 
 import "fmt"
 

@@ -1,8 +1,8 @@
-package main
+package functions_test
 
 import "fmt"
 
-func main() {
+func main3() {
 
 	/*	numbers := []int{10, 12, 15, 17, 19, 22, 25, 26, 30, 34}
 		for index, value := range numbers {

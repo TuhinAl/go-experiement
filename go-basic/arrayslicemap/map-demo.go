@@ -1,6 +1,6 @@
-package main
+package arrayslicemap
 
-func main() {
+func main5() {
 	//map define first way
 
 	/*currencyCode := make(map[string]string)

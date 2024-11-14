@@ -1,4 +1,4 @@
-package main
+package interface_test
 
 import "fmt"
 
@@ -10,7 +10,7 @@ Struct topic covered
 	4. method on struct
 */
 
-func main() {
+func main4() {
 	/*
 		var student = Student{"Alauddin Tuhin", 27, "eu.tuhin@gmail.com", "16"}
 		fmt.Println(student)

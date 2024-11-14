@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main9() {
 	/*	name := MyString("alauddin tuhin")
 		var vowelsFinder VowelsFinder
 		vowelsFinder = name // possible since MyString implements VowelsFinder

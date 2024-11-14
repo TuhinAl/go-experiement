@@ -1,10 +1,10 @@
-package main
+package datatypeoperator
 
 import (
 	"fmt"
 )
 
-func main() {
+func main1() {
 	fmt.Println("================================= data type =============================")
 
 	/*	there are two types of data type

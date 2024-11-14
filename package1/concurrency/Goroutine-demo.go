@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func main8() {
 	//done := make(chan bool) // declare channel
 	//go hello(done)
 	//<-done // read data from channel // here blocking happens

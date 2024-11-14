@@ -1,4 +1,4 @@
-package main
+package goexperiment
 
 import (
 	//"structs/computer"

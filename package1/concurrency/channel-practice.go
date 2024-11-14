@@ -10,7 +10,7 @@ channel: Channels can be thought of as pipes using which Goroutines communicate.
 to another in a pipe, data can be sent from one end and received from the other end using channels.
 */
 
-func main() {
+func main7() {
 	//channelCreate()
 
 	// Blocking Goroutine and Channel
