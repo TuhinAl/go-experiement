@@ -97,3 +97,25 @@ The `go mod tidy` command in Go is used to clean up and optimize your module's d
 
 
 #### Creating and accessing a package in module
+
+```
+# Initialize a new Go module (run in the root directory of the module)
+go mod init <module-path>
+# Example: go mod init github.com/username/repository-name/module-name
+
+# Download and tidy up dependencies (removes unused packages)
+go mod tidy
+
+# Update dependencies to the latest versions (based on semantic versioning)
+go get -u ./...
+
+# Add or upgrade a specific dependency
+go get example.com/some/dependency@latest
+
+# List all dependencies in the module
+go list -m all
+```
+
+
+
+f
