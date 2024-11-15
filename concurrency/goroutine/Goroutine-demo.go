@@ -2,6 +2,7 @@ package goroutine
 
 import (
 	"fmt"
+	"time"
 )
 
 func main8() {
@@ -49,4 +50,10 @@ func calculateCube(number int, cubeChannel chan int) {
 		number /= 10
 	}
 	cubeChannel <- sum
+}
+
+// for sequential programming check
+func CalculateSquare(i int) {
+	time.Sleep(1 * time.Second)
+	fmt.Println(i * i)
 }
