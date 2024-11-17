@@ -184,3 +184,88 @@ Go-routine vs Threads:
 2. Go-routines are `multiplexed to a fewer number of OS threads`.
 3. The `context switching` time of go-routines is much `faster`.
 4. Go-routines communicate using channels.
+
+#### Wait-Groups
+1. The problem with go-routines was the `main go-routine terminating` before the go-routines completed or even began their execution.
+2. To wait for multiple go-routines to finish, we can use a `wait group`.
+3. A wait group is a `synchronization primitive` that allows multiple go-routines to wait for each other.
+Synchronization Primitive - To manage and coordinate access to shared resources in concurrent programming.These primitives help ensure that operations on shared data are performed safely and predictably when multiple threads, processes, or goroutines are involved.
+Common Synchronization Primitives:
+
+`i. Mutex:` Ensures that only one thread or goroutine accesses a critical section of code or a shared resource at a time
+
+`ii. RWMutex (Read-Write Mutex):` Allows multiple readers or a single writer to access a resource. Useful when read operations are more frequent than write operations.
+
+`iii. WaitGroup:` Waits for a collection of goroutines to complete.
+
+`iv. Condition Variables:` Used to block goroutines until a specific condition is met.Built on top of a mutex.
+    
+`v. Channels (Specific to Go):` Used to safely share data between goroutines. Channels act as both a synchronization and communication primitive.
+
+`vi. Semaphores:` Control access to a limited number of resources. Go doesn’t have native semaphores but can be implemented using channels.
+
+Why Use Synchronization Primitives?
+
+i. Avoid Race Conditions:
+
+ii. Coordinate Tasks
+
+iii. Prevent data corruption during concurrent access.
+
+
+##### Real-Life Example:
+Suppose you’re implementing a banking system where multiple transactions modify a shared account balance. Without synchronization, concurrent access could lead to incorrect results.
+Example Using a Mutex:
+```
+package main
+
+import (
+    "fmt"
+    "sync"
+)
+
+var balance int
+var mu sync.Mutex
+
+func deposit(amount int, wg *sync.WaitGroup) {
+    defer wg.Done()
+    mu.Lock()
+    balance += amount
+    mu.Unlock()
+}
+
+func main() {
+    var wg sync.WaitGroup
+    wg.Add(2)
+    go deposit(100, &wg)
+    go deposit(200, &wg)
+    wg.Wait()
+    fmt.Println("Final Balance:", balance)
+}
+
+```
+ i. Without the Mutex: Race conditions may occur, leading to incorrect balances.
+ii. With the Mutex: Only one goroutine can modify the balance at a time, ensuring correctness.
+
+4. This package acts like a counter that blocks execution in a structured way until its internal counter becomes 0.
+
+```
+Wait group syntax:
+
+VAR VARIABLE_NAME DATA_TYPE
+var wg sync.WaitGroup
+```
+**Wait-group Method:**
+```
+1. wg.Add(int) -> This indicates the number of available go-routines to wait for.
+The integer in the function parameter acts like a counter.
+```
+```
+2. wg.Wait() -> This method blocks the execution of code until the internal counter reduces to `value = 0`.
+```
+
+
+```
+3. wg.Done() -> This method decreases the internal count parameter in 
+`Add() method by 1.`
+```
