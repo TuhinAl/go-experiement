@@ -269,3 +269,42 @@ The integer in the function parameter acts like a counter.
 3. wg.Done() -> This method decreases the internal count parameter in 
 `Add() method by 1.`
 ```
+
+
+
+### Channel: 
+* Channels are a means through which different go-routines communicate.
+* `“Do not communicate by sharing memory; instead, share memory by communicating”` – Rob Pike 
+* Communicate by sharing memory – Threads and mutexes
+* Share memory by communicating – Go-routines and channels.
+
+Typically shared-data structure are protected by Locks and Threads contend over those locks to access the data. Hence, communicating each other by sharing memory in form of data. while go's concurrency primitives which are goroutines and channels provide us an elegent and distinct means of `strucing concurrent` software. Instead of explicitly use of locks to miniate access to shared data, go encouragea to use of channels, to pass references/memory to data between goroutine. This approach ensures that only one goroutine has access to the data at a given time, hence `sharing memory by communicating`.
+
+* The communication is `bidirectional by default`, meaning that you can `send and receive` values from the `same channel`.
+* By default, channels send and receive until the other side is ready.
+* This allows go-routines to synchronize without explicit locks or condition variables.
+
+```Syntax:
+var ch chan string
+ch := make( chan string)
+```
+A channel can only hold `string or int` data types. Channel can be bidirectional or single unidirectional.
+
+Channel Operations:
+
+* Sending a value
+* Receiving a value
+* Closing a channel
+* Querying Buffer of a channel
+* Querying length of a channel
+![alt text](images/channel/send-value.png)<br>
+![alt text](images/channel/receive-value.png)<br>
+![alt text](images/channel/close-channel.png)<br>
+![alt text](images/channel/buffer-of-channel.png)<br>
+![alt text](images/channel/length-of-channel.png)<br>
+
+#### buffered channels
+![alt text](images/channel/unbufferedchannel.png)<br>
+![alt text](images/channel/buffered-channel.png)<br>
+![alt text](images/channel/buffered-channel-syntax.png)<br>
+![alt text](images/channel/length0funbufferedch.png)<br>

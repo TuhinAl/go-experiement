@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/tuhinal/go-experiment/concurrency/goroutine"
+	"github.com/tuhinal/go-experiment/concurrency/buffered-channel"
 )
 
 func main() {
