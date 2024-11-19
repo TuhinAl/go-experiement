@@ -1,8 +1,7 @@
 package main
 
 import (
-	
-	"github.com/tuhinal/go-experiment/concurrency/select-statement"
+	selectstatement "github.com/tuhinal/go-experiment/concurrency/select-statement"
 )
 
 func main() {
@@ -25,7 +24,7 @@ func main() {
 	elapsed := time.Since(start)
 	time.Sleep(2 * time.Second)
 	fmt.Println("Function took: ", elapsed) */
-	
+
 	/* var wg sync.WaitGroup
 	start := time.Now()
 	wg.Add(10000)
@@ -40,6 +39,11 @@ func main() {
 	// bufferedchannel.ChannelClose()
 	// bufferedchannel.Panic()
 	// bufferedchannel.ChannelForRange()
-	selectstatement.SelectDemo()
+	// selectstatement.SelectDemo()
+	// selectstatement.DefaultCaseOfSelect()
+	// selectstatement.DeadlockAndDefaultCase()
+	// selectstatement.NilChannelDefaultCase()
+	selectstatement.RandomSelect()
+
 
 }
