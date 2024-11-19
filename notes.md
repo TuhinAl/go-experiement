@@ -116,7 +116,7 @@ go get example.com/some/dependency@latest
 go list -m all
 ```
 
-#### Golang concurrency
+## Golang concurrency
 Topics:
 1. Sequential and Concurrent 
 2. Concurrency and Parallelism
@@ -308,3 +308,56 @@ Channel Operations:
 ![alt text](images/channel/buffered-channel.png)<br>
 ![alt text](images/channel/buffered-channel-syntax.png)<br>
 ![alt text](images/channel/length0funbufferedch.png)<br>
+
+
+#### Closing a channel:
+* Closing a channel means that no more data can be sent to that channel.
+* It is generally closed when there’s no more data to be sent.
+* We can use the inbuilt close() function for the operation.
+Syntax:
+```
+v, ok := <- ch
+```
+* If `ok` is true, this means that the channel is open.
+* If `ok` is false, this means that the channel is closed and there are no more values to receive.
+
+#### Panic situation
+* In Go language, `panic` is just like an exception, it also arises at runtime.
+* Panic means an unexpected condition arises in your Go program due to which the execution of your program is terminated.
+* There are a few scenarios that can cause panic while working with channels such as -
+    
+    * sending to a channel after it has been closed. `panic: send on closed channel`
+    * closing an already closed channel: `panic: close of closed channel`
+
+#### Select Statement
+* The `select` statement in Go looks like a switch statement but for channels.
+* The `select` statement lets a go-routine wait on multiple communication operations.
+* In `select`, each of the case statement waits for a send or receive operation from a channel.
+* Whereas in `switch`, each of the case statements is an expression.
+* `select` blocks until any of the case statements are ready.
+* If multiple case statements are ready, then it selects one at random and proceeds.
+
+Syntax: 
+```
+select {
+case channel_send_or_receive:
+// Do something
+case channel_send_or_receive:
+// Do something
+default:
+// (optional)
+}
+```
+
+Select statement: `applications`:
+* The select statement lets a go-routine wait on multiple communication operations.
+* select along with channels and go-routines becomes a very `powerful tool for managing synchronization and concurrency.`
+
+![alt text](images/select/select-definition.png)<br>
+
+![alt text](images/select/select-statement-2.png)<br>
+![alt text](images/select/sekect-syntax.png)<br>
+![alt text](images/select/select-application.png)<br>
+![alt text](images/select/select-default-case.png)<br>
+![alt text](images/select/select-vs-switch.png)<br>
+<!-- ![alt text](images/select/)<br> -->

@@ -1,12 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"sync"
-	"time"
-
-	"github.com/tuhinal/go-experiment/concurrency/goroutine"
-	"github.com/tuhinal/go-experiment/concurrency/buffered-channel"
+	
+	"github.com/tuhinal/go-experiment/concurrency/select-statement"
 )
 
 func main() {
@@ -29,7 +25,8 @@ func main() {
 	elapsed := time.Since(start)
 	time.Sleep(2 * time.Second)
 	fmt.Println("Function took: ", elapsed) */
-	var wg sync.WaitGroup
+	
+	/* var wg sync.WaitGroup
 	start := time.Now()
 	wg.Add(10000)
 	for i := 1; i <= 10000; i++ {
@@ -37,6 +34,12 @@ func main() {
 	}
 	elapsed := time.Since(start)
 	wg.Wait()
-	fmt.Println("Function toook: ", elapsed)
+	fmt.Println("Function toook: ", elapsed) */
+	// bufferedchannel.Bufferedchannel()
+	// bufferedchannel.ChannelRead()
+	// bufferedchannel.ChannelClose()
+	// bufferedchannel.Panic()
+	// bufferedchannel.ChannelForRange()
+	selectstatement.SelectDemo()
 
 }
