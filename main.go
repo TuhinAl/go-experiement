@@ -43,7 +43,8 @@ func main() {
 	// selectstatement.DefaultCaseOfSelect()
 	// selectstatement.DeadlockAndDefaultCase()
 	// selectstatement.NilChannelDefaultCase()
-	selectstatement.RandomSelect()
+	// selectstatement.RandomSelect()
+	selectstatement.CreatingRaceCondition()
 
 
 }
