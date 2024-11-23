@@ -361,3 +361,27 @@ Select statement: `applications`:
 ![alt text](images/select/select-default-case.png)<br>
 ![alt text](images/select/select-vs-switch.png)<br>
 <!-- ![alt text](images/select/)<br> -->
+
+Some concurrency practice:
+
+1. Cleaning up go-routines <br>
+![alt text](images/concurrency-practice/goroutine-leak.png)<br>
+
+2. When to use buffered channel <br>
+![alt text](images/concurrency-practice/buffered-channel.png)<br>
+
+
+2. Time out <br>
+![alt text](images/concurrency-practice/timed-out.png)<br>
+
+![alt text](images/concurrency-practice/timed-out-code.png)<br>
+
+
+Important core packages that should read:
+    * strings
+    * input/output
+    * file handling
+    * errors
+    * hashed and cryptography
+    * sort
+    * testing

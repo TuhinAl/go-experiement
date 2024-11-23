@@ -1,7 +1,7 @@
 package main
 
 import (
-	selectstatement "github.com/tuhinal/go-experiment/concurrency/select-statement"
+	concurrencypractice "github.com/tuhinal/go-experiment/concurrency/concurrency-practice"
 )
 
 func main() {
@@ -44,7 +44,10 @@ func main() {
 	// selectstatement.DeadlockAndDefaultCase()
 	// selectstatement.NilChannelDefaultCase()
 	// selectstatement.RandomSelect()
-	selectstatement.CreatingRaceCondition()
+	// selectstatement.CreatingRaceCondition()
+	// concurrencypractice.GoroutineLeak()
+	// concurrencypractice.SpawningUpGoroutine()
+	concurrencypractice.Timeout()
 
 
 }
