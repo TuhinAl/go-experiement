@@ -1,7 +1,7 @@
 package main
 
 import (
-	concurrencypractice "github.com/tuhinal/go-experiment/concurrency/concurrency-practice"
+	stringdemo "github.com/tuhinal/go-experiment/go-basic/core-packages/strings"
 )
 
 func main() {
@@ -47,7 +47,8 @@ func main() {
 	// selectstatement.CreatingRaceCondition()
 	// concurrencypractice.GoroutineLeak()
 	// concurrencypractice.SpawningUpGoroutine()
-	concurrencypractice.Timeout()
+	// concurrencypractice.Timeout()
+	stringdemo.StringDemo()
 
 
 }

@@ -1,6 +1,6 @@
 package functions_test
 
-import "fmt"
+import ("fmt")
 
 func main3() {
 
@@ -69,4 +69,59 @@ func summation2(nums ...int) {
 		result += num
 	}
 	fmt.Println(result)
+}
+
+
+// annonymous function
+
+//Practice-1
+func printCostReport(costCalculator func(string) int, message string) {
+	cost := costCalculator(message)
+	fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
+	fmt.Println()
+}
+
+func PrintReports(intro, body, outro string) {
+	printCostReport(func(intro string) int{
+		return len(intro)
+	}, intro)
+
+	printCostReport(func(body string) int{
+		return len(body)
+	}, body)
+
+
+	printCostReport(func(outro string) int{
+		return len(outro)
+	}, outro)
+}
+
+//Practice 2
+
+func conversions(converter func(int) int, x, y, z int) (int, int, int) {
+	convertedX := converter(x)
+	convertedY := converter(y)
+	convertedZ := converter(z)
+	return convertedX, convertedY, convertedZ
+}
+func double(a int) int {
+    return a + a
+}
+
+func CallerFunction() {
+    // using a named function
+	//newX, newY, newZ := conversions(double, 1, 2, 3)
+	// newX is 2, newY is 4, newZ is 6
+
+    // using an anonymous function
+	/* newX, newY, newZ = conversions(func(a int) int {
+	    return a * a
+	}, 1, 2, 3) */
+	// newX is 1, newY is 4, newZ is 9
+}
+
+//Defer practice: Defer Scheduled a function-call to be executed later. commonly used for clean-up task i.e closing, file, closing DB connections, release resources, unlocking Mutex 
+func DeferPractice() {
+	fmt.Println("Defer practicing ....")
+	defer fmt.Println("Unlocking Mutex")
 }

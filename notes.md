@@ -378,10 +378,15 @@ Some concurrency practice:
 
 
 Important core packages that should read:
-    * strings
-    * input/output
-    * file handling
-    * errors
-    * hashed and cryptography
-    * sort
-    * testing
+
+ * [strings:](https://pkg.go.dev/strings#Clone) Contains, ReplaceAll, Count
+
+* [input/output](https://pkg.go.dev/io)
+* [file handling](https://pkg.go.dev/os)
+* [errors](https://pkg.go.dev/errors)
+* [hashed](https://pkg.go.dev/hash) and [cryptography](https://pkg.go.dev/crypto)
+* [sort](https://pkg.go.dev/sort)
+* [testing](https://pkg.go.dev/testing)
+* Array
+* [Slice](https://pkg.go.dev/slices) [Slice-Blog](https://go.dev/blog/slices)
+* [Map](https://pkg.go.dev/maps)
