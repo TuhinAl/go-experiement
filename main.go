@@ -1,7 +1,7 @@
 package main
 
 import (
-	stringdemo "github.com/tuhinal/go-experiment/go-basic/core-packages/strings"
+	datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 )
 
 func main() {
@@ -48,7 +48,8 @@ func main() {
 	// concurrencypractice.GoroutineLeak()
 	// concurrencypractice.SpawningUpGoroutine()
 	// concurrencypractice.Timeout()
-	stringdemo.StringDemo()
+	// stringdemo.StringDemo()
 
-
+	// datatypeoperator.CalculateBoilingPoint()
+	datatypeoperator.PointerPractice()
 }

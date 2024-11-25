@@ -104,9 +104,6 @@ func conversions(converter func(int) int, x, y, z int) (int, int, int) {
 	convertedZ := converter(z)
 	return convertedX, convertedY, convertedZ
 }
-func double(a int) int {
-    return a + a
-}
 
 func CallerFunction() {
     // using a named function
@@ -124,4 +121,8 @@ func CallerFunction() {
 func DeferPractice() {
 	fmt.Println("Defer practicing ....")
 	defer fmt.Println("Unlocking Mutex")
+}
+
+func sum(number1 int, number2 int) int {
+	return number1 + number2
 }

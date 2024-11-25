@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+const boilingF = 212.0
+
 func main1() {
 	fmt.Println("================================= data type =============================")
 
@@ -53,4 +55,20 @@ func main1() {
 	//Signed means positive and negative numbers { -5 to 5}
 	// unsigned means only positive numbers { 0 to 5}
 
+}
+
+func FindDuplicateLine()  {
+	
+}
+
+func CalculateBoilingPoint()  {
+	// var fahrenheit = boilingF
+	var fahrenheit = 33.81;
+	// var celcius = (fahrenheit - 32 ) * 5 / 9
+	celcius := FahrenheitToCelcius(fahrenheit)
+	fmt.Printf("boiling point %g°F or %g°C\n", fahrenheit, celcius)
+}
+
+func FahrenheitToCelcius(fahrenheit float64) float64 {
+	return (fahrenheit - 32 ) * 5 / 9
 }
