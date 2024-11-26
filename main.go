@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 )
 
@@ -51,5 +53,14 @@ func main() {
 	// stringdemo.StringDemo()
 
 	// datatypeoperator.CalculateBoilingPoint()
-	datatypeoperator.PointerPractice()
+	// datatypeoperator.PointerPractice()
+	
+	hasPrefix := datatypeoperator.HasPrefix("tuhin","tuh")
+	hasSuffix := datatypeoperator.HasSuffix("Alauddin tuhin","tuhin")
+	isSubstring := datatypeoperator.IsSubString("Alauddin tuhin","tuhin")
+	fmt.Println(hasPrefix)
+	fmt.Println(hasSuffix)
+	fmt.Println(isSubstring)
+
+	datatypeoperator.UnicodeCodePoint()
 }

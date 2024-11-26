@@ -2,8 +2,19 @@ package datatypeoperator
 
 import (
 	"fmt"
+	"unicode/utf8"
 )
 
+/*
+Golang types falls into Four category:
+	1. Basic Type: numbers, strings, and booleans.
+	2. Aggregate Type: Array & structs
+	3. Reference Type: Pointer, Slice, Map, Function & Channel
+	4. Interface Type
+
+	Four standard packages are particularly importantt for manipulating string:
+	bytes, strings, strconv, unicode
+*/
 const boilingF = 212.0
 
 func main1() {
@@ -71,4 +82,40 @@ func CalculateBoilingPoint()  {
 
 func FahrenheitToCelcius(fahrenheit float64) float64 {
 	return (fahrenheit - 32 ) * 5 / 9
+}
+
+func HasPrefix(str, prefix string) bool {
+	return len(str) >= len(prefix) && str[:len(prefix)] == prefix
+}
+
+func HasSuffix(str, suffix string) bool {
+	return len(str) >= len(suffix) && str[len(str) - len(suffix):] == suffix
+}
+
+func IsSubString(str, substring string)  bool{
+
+	for i := 0; i < len(str); i++ {
+		if HasPrefix(str[i:], substring){
+			return true
+		}
+	}
+	return false
+}
+
+func UnicodeCodePoint()  {
+	str := "Hello, 你好"
+	fmt.Println(len(str))
+	fmt.Println(utf8.RuneCountInString(str))
+
+	for i := 0; i < len(str); {
+		r, size := utf8.DecodeLastRuneInString(str[i:])
+		fmt.Println("r is: ",r)
+		fmt.Println("size is", size)
+		fmt.Printf("%d\t%c\n", i, r)
+		i+= size
+	}
+	unicodeStr := "你好"
+	stringAsRune := []rune(unicodeStr)
+
+	fmt.Println(len(stringAsRune))
 }
