@@ -79,5 +79,25 @@ func arrayComparableCheck() {
 func ArrayPractice() {
 	// arrayBasic()
 	// currencySymbol()
-	arrayComparableCheck()
+	// arrayComparableCheck()
+	overlappingSlice()
 }
+
+func SliceMethodCall() {
+	slice1 := []string{"Real Madrid", "Manchester City", "Bayern Munchen", "Barcelona", "Liverpool", "PSG"}
+	slice2 := []string{"Royel Madrid", "Manchester City", "Bayern Munchen", "Barcelona", "Liverpool", "PSG"}
+	isTwoSliceIdentical := comapringTwoStringTypeSlice(slice1, slice2)
+	fmt.Println(isTwoSliceIdentical)
+
+	//comparing byte slice
+	byteSlice1 := []byte{1, 2, 3, 4, 5}
+	// byteSlice2 := []byte{1, 2, 3, 4, 5}
+	byteSlice3 := []byte{5, 4, 3, 2, 1}
+
+	isTwoByteSliceIdentical := comapareByteSlice(byteSlice1, byteSlice3)
+	fmt.Println(isTwoByteSliceIdentical)
+	checkIndirectnessOfSlice()
+	NilAndEmptyCheck()
+	appendRune()
+}
+

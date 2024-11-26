@@ -64,5 +64,6 @@ func main() {
 	fmt.Println(isSubstring) */
 
 	// datatypeoperator.UnicodeCodePoint()
-	arrayslicemap.ArrayPractice()
+	// arrayslicemap.ArrayPractice()
+	arrayslicemap.SliceMethodCall()
 }
