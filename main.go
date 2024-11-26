@@ -68,5 +68,6 @@ func main() {
 	// arrayslicemap.ArrayPractice()
 	// arrayslicemap.SliceMethodCall()
 	// arrayslicemap.MapMethodCall()
-	structs.EmployeeManipulation()
+	// structs.EmployeeManipulation()
+	structs.BasicStruct()
 }
