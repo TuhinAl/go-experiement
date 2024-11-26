@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 
-	datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
+	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
+	arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 )
 
 func main() {
@@ -55,12 +56,13 @@ func main() {
 	// datatypeoperator.CalculateBoilingPoint()
 	// datatypeoperator.PointerPractice()
 	
-	hasPrefix := datatypeoperator.HasPrefix("tuhin","tuh")
+	/* hasPrefix := datatypeoperator.HasPrefix("tuhin","tuh")
 	hasSuffix := datatypeoperator.HasSuffix("Alauddin tuhin","tuhin")
 	isSubstring := datatypeoperator.IsSubString("Alauddin tuhin","tuhin")
 	fmt.Println(hasPrefix)
 	fmt.Println(hasSuffix)
-	fmt.Println(isSubstring)
+	fmt.Println(isSubstring) */
 
-	datatypeoperator.UnicodeCodePoint()
+	// datatypeoperator.UnicodeCodePoint()
+	arrayslicemap.ArrayPractice()
 }
