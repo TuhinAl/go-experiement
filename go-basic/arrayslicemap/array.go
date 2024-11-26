@@ -101,3 +101,7 @@ func SliceMethodCall() {
 	appendRune()
 }
 
+func MapMethodCall()  {
+	// mapBsic()
+	MapSortByKey()
+}

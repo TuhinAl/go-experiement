@@ -4,7 +4,8 @@ import (
 	// "fmt"
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	structs "github.com/tuhinal/go-experiment/go-basic/structs"
 )
 
 func main() {
@@ -65,5 +66,7 @@ func main() {
 
 	// datatypeoperator.UnicodeCodePoint()
 	// arrayslicemap.ArrayPractice()
-	arrayslicemap.SliceMethodCall()
+	// arrayslicemap.SliceMethodCall()
+	// arrayslicemap.MapMethodCall()
+	structs.EmployeeManipulation()
 }
