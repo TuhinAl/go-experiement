@@ -2,18 +2,32 @@ package datatypeoperator
 
 import (
 	"fmt"
+	"os"
 	"unicode/utf8"
+)
+
+const (
+	a = 1
+	b = 2 * 1024
+	c = b << 3
+	s = "A string"
+	t = len(s)
+	// u = s[2:]    Syntax error
 )
 
 /*
 Golang types falls into Four category:
-	1. Basic Type: numbers, strings, and booleans.
-	2. Aggregate Type: Array & structs
-	3. Reference Type: Pointer, Slice, Map, Function & Channel
-	4. Interface Type
 
-	Four standard packages are particularly importantt for manipulating string:
-	bytes, strings, strconv, unicode
+ 1. Basic Type: numbers, strings, and booleans.
+
+ 2. Aggregate Type: Array & structs
+
+ 3. Reference Type: Pointer, Slice, Map, Function & Channel
+
+ 4. Interface Type
+
+    Four standard packages are particularly importantt for manipulating string:
+    bytes, strings, strconv, unicode
 */
 const boilingF = 212.0
 
@@ -68,20 +82,20 @@ func main1() {
 
 }
 
-func FindDuplicateLine()  {
-	
+func FindDuplicateLine() {
+
 }
 
-func CalculateBoilingPoint()  {
+func CalculateBoilingPoint() {
 	// var fahrenheit = boilingF
-	var fahrenheit = 33.81;
+	var fahrenheit = 33.81
 	// var celcius = (fahrenheit - 32 ) * 5 / 9
 	celcius := FahrenheitToCelcius(fahrenheit)
 	fmt.Printf("boiling point %g°F or %g°C\n", fahrenheit, celcius)
 }
 
 func FahrenheitToCelcius(fahrenheit float64) float64 {
-	return (fahrenheit - 32 ) * 5 / 9
+	return (fahrenheit - 32) * 5 / 9
 }
 
 func HasPrefix(str, prefix string) bool {
@@ -89,33 +103,56 @@ func HasPrefix(str, prefix string) bool {
 }
 
 func HasSuffix(str, suffix string) bool {
-	return len(str) >= len(suffix) && str[len(str) - len(suffix):] == suffix
+	return len(str) >= len(suffix) && str[len(str)-len(suffix):] == suffix
 }
 
-func IsSubString(str, substring string)  bool{
+func IsSubString(str, substring string) bool {
 
 	for i := 0; i < len(str); i++ {
-		if HasPrefix(str[i:], substring){
+		if HasPrefix(str[i:], substring) {
 			return true
 		}
 	}
 	return false
 }
 
-func UnicodeCodePoint()  {
+func UnicodeCodePoint() {
 	str := "Hello, 你好"
 	fmt.Println(len(str))
 	fmt.Println(utf8.RuneCountInString(str))
 
 	for i := 0; i < len(str); {
 		r, size := utf8.DecodeLastRuneInString(str[i:])
-		fmt.Println("r is: ",r)
+		fmt.Println("r is: ", r)
 		fmt.Println("size is", size)
 		fmt.Printf("%d\t%c\n", i, r)
-		i+= size
+		i += size
 	}
 	unicodeStr := "你好"
 	stringAsRune := []rune(unicodeStr)
 
 	fmt.Println(len(stringAsRune))
+}
+
+func InputFromTerminalAndFile() {
+
+	var sum float64
+	var times int
+	for {
+		var value float64
+
+		_, err := fmt.Fscanln(os.Stdin, &value)
+
+		if err != nil {
+			break
+		}
+		sum += value
+		times++
+	}
+	if times == 0 {
+		fmt.Fprintln(os.Stderr, "no values")
+		os.Exit(-1)
+	}
+
+	fmt.Println("The average is: ", sum/float64(times))
 }

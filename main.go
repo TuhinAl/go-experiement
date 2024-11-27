@@ -5,7 +5,8 @@ import (
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
-	structs "github.com/tuhinal/go-experiment/go-basic/structs"
+	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
+	datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 )
 
 func main() {
@@ -69,5 +70,6 @@ func main() {
 	// arrayslicemap.SliceMethodCall()
 	// arrayslicemap.MapMethodCall()
 	// structs.EmployeeManipulation()
-	structs.BasicStruct()
+	// structs.BasicStruct()
+	datatype.InputFromTerminalAndFile()
 }
