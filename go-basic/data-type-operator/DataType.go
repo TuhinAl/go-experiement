@@ -1,8 +1,10 @@
 package datatypeoperator
 
 import (
+	"bufio"
 	"fmt"
 	"os"
+	"strings"
 	"unicode/utf8"
 )
 
@@ -155,4 +157,20 @@ func InputFromTerminalAndFile() {
 	}
 
 	fmt.Println("The average is: ", sum/float64(times))
+}
+
+func Stringreplace() {
+	if len(os.Args) < 3 {
+		fmt.Fprintln(os.Stderr, "not enough args")
+		os.Exit(-1)
+	}
+
+	old, new := os.Args[1], os.Args[2]
+	scan := bufio.NewScanner(os.Stdin)
+
+	for scan.Scan() {
+		s := strings.Split(scan.Text(), old)
+		t := strings.Join(s, new)
+		fmt.Println(t)
+	}
 }

@@ -71,5 +71,6 @@ func main() {
 	// arrayslicemap.MapMethodCall()
 	// structs.EmployeeManipulation()
 	// structs.BasicStruct()
-	datatype.InputFromTerminalAndFile()
+	// datatype.InputFromTerminalAndFile()
+	datatype.Stringreplace()
 }
