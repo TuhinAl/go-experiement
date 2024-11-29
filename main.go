@@ -72,5 +72,5 @@ func main() {
 	// structs.EmployeeManipulation()
 	// structs.BasicStruct()
 	// datatype.InputFromTerminalAndFile()
-	datatype.Stringreplace()
+	datatype.SortingDemo()
 }
