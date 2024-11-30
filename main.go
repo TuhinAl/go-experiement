@@ -4,9 +4,9 @@ import (
 	// "fmt"
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
-	datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
+	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 )
 
 func main() {
@@ -72,5 +72,6 @@ func main() {
 	// structs.EmployeeManipulation()
 	// structs.BasicStruct()
 	// datatype.InputFromTerminalAndFile()
-	datatype.SortingDemo()
+	// datatype.SortingDemo()
+	arrayslicemap.ReSlicing()
 }

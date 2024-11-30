@@ -98,3 +98,19 @@ func appendRune() {
 	}
 	fmt.Printf("%q\n", runes)
 }
+
+type Team struct {
+	name string
+	rank int
+}
+
+func ReSlicing() {
+	teams := []Team{{name: "Real Madrid", rank: 1}, {name: "Manchester City", rank: 2}, {name: "Bayern Munchen", rank: 3}, {name: "Liverpool", rank: 4}, {name: "Barcelona", rank: 5}, {name: "Manchester United", rank: 6}}
+
+	topThreeTeams := teams[0:3]
+	fmt.Println("Original slice len:", len(teams))
+	fmt.Println("Original slice capacity:", cap(teams))
+    fmt.Println("Sub-slice len:", len(topThreeTeams))
+    fmt.Println("Sub-slice capacity:", cap(topThreeTeams))
+	teams = append(teams, Team{name: "Chelsea", rank: 7}, Team{name: "Dortmund", rank: 8})
+}
