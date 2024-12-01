@@ -14,6 +14,10 @@ import (
 
 	Important: "Multiple Slice can share the same underlying array(months) and may refer to overlapping parts of that array(months)"
 */
+const(
+	DEFAULT_UUID = "00000000-0000-0000-0000-000000000000"
+	PI = 3.141534234
+)
 
 func overlappingSlice() {
 

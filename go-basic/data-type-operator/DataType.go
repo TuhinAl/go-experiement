@@ -174,3 +174,12 @@ func Stringreplace() {
 		fmt.Println(t)
 	}
 }
+
+func ShadowingShortDeclaration()  {
+	n, err := fmt.Println("Shadowing Short declaration")
+	// this is generate compile error, bcz the first 'err' is unused
+	fmt.Println("first error: ",err)
+	if _, err := fmt.Println(n); err != nil { 
+		fmt.Println(err)
+	}
+}
