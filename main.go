@@ -4,7 +4,8 @@ import (
 	// "fmt"
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 )
@@ -73,5 +74,8 @@ func main() {
 	// structs.BasicStruct()
 	// datatype.InputFromTerminalAndFile()
 	// datatype.SortingDemo()
-	arrayslicemap.ReSlicing()
+	// arrayslicemap.ReSlicing()
+	// IOput.FileIOdemo()
+	// IOput.CalculateFileSize()
+	IOput.WordLineAndCharacterCount()
 }

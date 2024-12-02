@@ -1,0 +1,3 @@
+Program Name:  /tmp/go-build935711673/b001/exe/main
+F Name:  files/file-IO.txt
+here is a line of text
