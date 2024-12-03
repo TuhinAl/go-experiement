@@ -4,11 +4,11 @@ import (
 	// "fmt"
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 	// IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	function "github.com/tuhinal/go-experiment/go-basic/functions"
+	// function "github.com/tuhinal/go-experiment/go-basic/functions"
 )
 
 func main() {
@@ -81,5 +81,6 @@ func main() {
 	// IOput.WordLineAndCharacterCount()
 	// function.Fib()
 	// function.ClouserWithSlice()
-	function.ClouserDemo()
+	// function.ClouserDemo()
+	arrayslicemap.SliceInDetails()
 }
