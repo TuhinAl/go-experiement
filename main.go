@@ -4,9 +4,9 @@ import (
 	// "fmt"
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
+	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 	// IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
-	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
+	structs "github.com/tuhinal/go-experiment/go-basic/structs"
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// function "github.com/tuhinal/go-experiment/go-basic/functions"
 )
@@ -82,5 +82,6 @@ func main() {
 	// function.Fib()
 	// function.ClouserWithSlice()
 	// function.ClouserDemo()
-	arrayslicemap.SliceInDetails()
+	// arrayslicemap.SliceInDetails()
+	structs.ComplexDataType()
 }

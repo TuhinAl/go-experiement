@@ -1,6 +1,7 @@
 package structs
 
 import (
+	"encoding/json"
 	"fmt"
 	"time"
 )
@@ -10,6 +11,13 @@ type Car struct {
 	int
 	//promoted fields
 	Person
+}
+
+type Response struct {
+	Username string `json:"user_name"`
+	Email    string `json:"email"`
+	Password string `json:"password"`
+	Token    string `json:"token"`
 }
 
 // Nested Structs
@@ -33,12 +41,26 @@ type Spec struct {
 	model string
 }
 type Employee struct {
-	ID            int
-	Name, Address string
-	DoB           time.Time
-	Position      string
-	Salary        int
-	ManagerId     int
+	ID        int
+	Name      string
+	Address   Address
+	DoB       time.Time
+	Position  string
+	Salary    int
+	ManagerId *Employee
+}
+
+type Point struct {
+	X int
+	Y int
+}
+type Circle struct {
+	Point
+	Radius int
+}
+type Wheel struct {
+	Circle
+	Spoke int
 }
 
 func structMethod() {
@@ -63,13 +85,16 @@ func structMethod() {
 
 func EmployeeManipulation() {
 	atikurRahman := Employee{
-		ID:        1,
-		Name:      "Atiqur Rahman",
-		Address:   "Rajshahi, Bangladesh",
-		DoB:       time.Now(),
-		Position:  "Juniro Software Enginner",
-		Salary:    22800,
-		ManagerId: 1000,
+		ID:   1,
+		Name: "Atiqur Rahman",
+		Address: Address{
+			city:     "Rajshahi",
+			district: "Rajshahi",
+			country:  "Bangladesh",
+		},
+		DoB:      time.Now(),
+		Position: "Juniro Software Enginner",
+		Salary:   22800,
 	}
 	fmt.Println("Before Salary Increment: Atiq Rahman is: ", atikurRahman.Salary)
 	promotionAndSalaryIncrement(&atikurRahman, "Senior Software Engineer", 5000).Salary = 0
@@ -139,15 +164,54 @@ func add(root *Tree, value int) *Tree {
 	return root
 }
 
-type Point struct {
-	X int
-	Y int
-}
-type Circle struct {
-	Point
-	Radius int
-}
-type Wheel struct {
-	Circle
-	Spoke int
+func ComplexDataType() {
+	company := map[string]*Employee{}
+	bashar := Employee{
+		ID:   10025,
+		Name: "Bashar Rahman",
+		Address: Address{
+			city:     "Dhaka",
+			district: "Dhaka",
+			country:  "Bangladesh",
+		},
+		DoB:      time.Now(),
+		Position: "Senior General Manager",
+		Salary:   150000.00,
+	}
+	// company["bashar"].Salary += 3500  // not possible: panic: runtime error: invalid memory address or nil pointer dereference.
+	tuhin := Employee{
+		ID:   10806,
+		Name: "Tuhin Md Alauddin",
+		Address: Address{
+			city:     "Dhaka",
+			district: "Jashore",
+			country:  "Bangladesh",
+		},
+		DoB:      time.Now(),
+		Position: "Senior General Manager",
+		Salary:   50000.00,
+		// ManagerId: &company["bashar"], // not possible
+		ManagerId: &bashar,
+	}
+	company["tuhin"] = &tuhin
+	company["bashar"] = &bashar
+	fmt.Println(company["bashar"])
+	company["bashar"].Salary += 3500 // it will works bcz my map is now pointer to a struct
+	fmt.Println(company["bashar"])
+
+	var student = struct {
+		name  string
+		roll  int
+		class string
+	}{
+		"Tanvir Hasnan", 01, "XI",
+	}
+
+	fmt.Println(student)
+	response := Response{Username: "tuhin", Password: "tuhin123", Email: "tuhin@gmail.com", Token: "eJhklsfdasjkdhf.jklashfdkasdf.oaisdflasdfio"}
+	jsonResponse, err := json.Marshal(response)
+	fmt.Println("Object  to JSON", string(jsonResponse), err)
+	var objectResponse Response
+	_ = json.Unmarshal(jsonResponse, &objectResponse)
+	fmt.Println("JSON to Object", objectResponse)
 }
