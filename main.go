@@ -5,9 +5,10 @@ import (
 
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
-	IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
+	// IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
+	function "github.com/tuhinal/go-experiment/go-basic/functions"
 )
 
 func main() {
@@ -58,7 +59,7 @@ func main() {
 
 	// datatypeoperator.CalculateBoilingPoint()
 	// datatypeoperator.PointerPractice()
-	
+
 	/* hasPrefix := datatypeoperator.HasPrefix("tuhin","tuh")
 	hasSuffix := datatypeoperator.HasSuffix("Alauddin tuhin","tuhin")
 	isSubstring := datatypeoperator.IsSubString("Alauddin tuhin","tuhin")
@@ -77,5 +78,8 @@ func main() {
 	// arrayslicemap.ReSlicing()
 	// IOput.FileIOdemo()
 	// IOput.CalculateFileSize()
-	IOput.WordLineAndCharacterCount()
+	// IOput.WordLineAndCharacterCount()
+	// function.Fib()
+	// function.ClouserWithSlice()
+	function.ClouserDemo()
 }
