@@ -1,6 +1,10 @@
 package interface_test
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/google/uuid"
+)
 
 func main9() {
 	/*	name := MyString("alauddin tuhin")
@@ -82,4 +86,66 @@ func sliceOfSalaryCalculator() []SalaryCalculator {
 	tanvir := Freelancer{103, 340, 8}
 	freelancer2 := Freelancer{104, 220, 9}
 	return []SalaryCalculator{selim, josim, bapparaj, tanvir, freelancer2}
+}
+
+type Product struct {
+	Id       uuid.UUID
+	Name     string
+	Price    float64
+	Quantity int
+}
+type ProductDto struct {
+	Name     string
+	Price    float64
+	Quantity int
+}
+
+type ProductService interface {
+	SaveProduct(p ProductDto) ProductDto
+	EditProduct(p ProductDto) ProductDto
+	DeleteProduct() Product
+	SearchProduct() Product
+}
+type ProductServiceImpl struct{}
+
+func (s ProductServiceImpl) SaveProduct(p ProductDto) ProductDto {
+	product := Product{
+		Id:       uuid.New(),
+		Name:     p.Name,
+		Price:    p.Price,
+		Quantity: p.Quantity,
+	}
+	return ProductDto{Name: product.Name}
+}
+
+// func (p *ProductServiceImpl) EditProduct(dto ProductDto) ProductDto { // pointer receiver
+// 	p.Price = dto.Price
+// 	return p
+// }
+
+func ImplementationTest() {
+	banana := ProductDto{
+		Name:     "Banana",
+		Price:    10.50,
+		Quantity: 8,
+	}
+	apple := ProductDto{
+		Name:     "Apple",
+		Price:    75.20,
+		Quantity: 8,
+	}
+	orange := ProductDto{
+		Name:     "Orange",
+		Price:    60.00,
+		Quantity: 8,
+	}
+
+	var productService ProductServiceImpl
+	bananaDto := productService.SaveProduct(banana)
+	appleDto := productService.SaveProduct(apple)
+	orangeDto := productService.SaveProduct(orange)
+	fmt.Println(bananaDto)
+	fmt.Println(appleDto)
+	fmt.Println(orangeDto)
+
 }
