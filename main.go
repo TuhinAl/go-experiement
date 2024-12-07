@@ -85,5 +85,6 @@ func main() {
 	// function.ClouserDemo()
 	// arrayslicemap.SliceInDetails()
 	// structs.ComplexDataType()
-	methodInterface.ImplementationTest()
+	// methodInterface.ImplementationTest()
+	methodInterface.IntSliceDemo()
 }

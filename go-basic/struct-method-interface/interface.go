@@ -1,6 +1,10 @@
 package interface_test
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 /**
 Struct topic covered
@@ -9,6 +13,24 @@ Struct topic covered
 	3. modifying field
 	4. method on struct
 */
+
+type IntSlice []int
+
+func (intSlice IntSlice) String() string {
+	var strs []string
+	for _, v := range intSlice {
+		strs = append(strs, strconv.Itoa(v))
+	}
+	return "[" + strings.Join(strs, ";") + "]"
+}
+
+func IntSliceDemo() {
+	var v IntSlice = []int{1, 2, 3}
+	for i, x := range v {
+		fmt.Printf("%d %d \n", i, x)
+	}
+	fmt.Printf("%T %[1]v\n", v)
+}
 
 func main4() {
 	/*
