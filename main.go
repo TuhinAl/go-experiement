@@ -7,9 +7,9 @@ import (
 	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 	// IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
-	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
+	datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// function "github.com/tuhinal/go-experiment/go-basic/functions"
-	methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
+	// methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
 )
 
 func main() {
@@ -86,5 +86,7 @@ func main() {
 	// arrayslicemap.SliceInDetails()
 	// structs.ComplexDataType()
 	// methodInterface.ImplementationTest()
-	methodInterface.IntSliceDemo()
+	// methodInterface.IntSliceDemo()
+	// datatype.BlockAndScoping()
+	datatype.SingleInput()
 }

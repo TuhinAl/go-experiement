@@ -183,3 +183,25 @@ func ShadowingShortDeclaration()  {
 		fmt.Println(err)
 	}
 }
+
+func BlockAndScoping()  {
+	
+	country := "Bangladesh"
+	{
+		district := "Jashore"
+		fmt.Println("before",country)
+		fmt.Println(district)
+		country = "Dhaka"
+		fmt.Println("after",country)
+		fmt.Println(country)
+	}
+	fmt.Println("at last",country)
+}
+
+func SingleInput()  {
+	
+	var name string
+	fmt.Print("Enter Your Name: ")
+	fmt.Scanf("%s", &name)
+	fmt.Println("Your Name is : ",name)
+}
