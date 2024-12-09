@@ -7,8 +7,8 @@ import (
 	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 	// IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
-	datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
-	// function "github.com/tuhinal/go-experiment/go-basic/functions"
+	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
+	function "github.com/tuhinal/go-experiment/go-basic/functions"
 	// methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
 )
 
@@ -88,5 +88,6 @@ func main() {
 	// methodInterface.ImplementationTest()
 	// methodInterface.IntSliceDemo()
 	// datatype.BlockAndScoping()
-	datatype.SingleInput()
+	// datatype.SingleInput()
+	function.CalculateCircle()
 }

@@ -1,6 +1,10 @@
 package functions_test
 
-import ("fmt")
+import (
+	"fmt"
+)
+
+const PI = 3.1416
 
 func main3() {
 
@@ -71,10 +75,9 @@ func summation2(nums ...int) {
 	fmt.Println(result)
 }
 
-
 // annonymous function
 
-//Practice-1
+// Practice-1
 func printCostReport(costCalculator func(string) int, message string) {
 	cost := costCalculator(message)
 	fmt.Printf(`Message: "%s" Cost: %v cents`, message, cost)
@@ -82,16 +85,15 @@ func printCostReport(costCalculator func(string) int, message string) {
 }
 
 func PrintReports(intro, body, outro string) {
-	printCostReport(func(intro string) int{
+	printCostReport(func(intro string) int {
 		return len(intro)
 	}, intro)
 
-	printCostReport(func(body string) int{
+	printCostReport(func(body string) int {
 		return len(body)
 	}, body)
 
-
-	printCostReport(func(outro string) int{
+	printCostReport(func(outro string) int {
 		return len(outro)
 	}, outro)
 }
@@ -106,18 +108,18 @@ func conversions(converter func(int) int, x, y, z int) (int, int, int) {
 }
 
 func CallerFunction() {
-    // using a named function
+	// using a named function
 	//newX, newY, newZ := conversions(double, 1, 2, 3)
 	// newX is 2, newY is 4, newZ is 6
 
-    // using an anonymous function
+	// using an anonymous function
 	/* newX, newY, newZ = conversions(func(a int) int {
 	    return a * a
 	}, 1, 2, 3) */
 	// newX is 1, newY is 4, newZ is 9
 }
 
-//Defer practice: Defer Scheduled a function-call to be executed later. commonly used for clean-up task i.e closing, file, closing DB connections, release resources, unlocking Mutex 
+// Defer practice: Defer Scheduled a function-call to be executed later. commonly used for clean-up task i.e closing, file, closing DB connections, release resources, unlocking Mutex
 func DeferPractice() {
 	fmt.Println("Defer practicing ....")
 	defer fmt.Println("Unlocking Mutex")
@@ -125,4 +127,64 @@ func DeferPractice() {
 
 func sum(number1 int, number2 int) int {
 	return number1 + number2
+}
+
+func calculateArea(radius float64) float64 {
+	return PI * radius * radius
+}
+
+func calculatePerimeter(radius float64) float64 {
+	return 2 * PI * radius
+}
+
+func calculateDiameter(radius float64) float64 {
+	return 2 * radius
+}
+
+func CalculateCircleInDeclerativeStyle() float64 {
+	var options int
+	var result float64
+	var radius float64
+	fmt.Println("Enter the radius of the circle: ")
+	fmt.Scanf("%f", &radius)
+	fmt.Println("Choose Option \n 1. Area of circle \n 2. Perimeter of circle \n 3. Diameter of circle")
+	fmt.Scanf("%d", &options)
+	switch options {
+	case 1:
+		result = calculateArea(radius)
+	case 2:
+		result = calculatePerimeter(radius)
+	case 3:
+		result = calculateDiameter(radius)
+	default:
+		fmt.Println("Invalid Option entered.")
+	}
+	return result
+}
+
+func CalculateCircle() {
+	// fmt.Println(" result is: ", CalculateCircleInDeclerativeStyle())
+	var options int
+	var radius float64
+	fmt.Println("Enter the radius of the circle: ")
+	fmt.Scanf("%f", &radius)
+	fmt.Println("Choose Option \n 1. Area of circle \n 2. Perimeter of circle \n 3. Diameter of circle")
+	fmt.Scanf("%d", &options)
+	fun := getFunction(options)
+	CalculateCircleInFunctionalStyle(radius, fun)
+}
+
+func getFunction(query int) func(float64) float64 {
+	functions := map[int]func(float64) float64{
+		1: calculateArea,
+		2: calculatePerimeter,
+		3: calculateDiameter,
+	}
+	return functions[query]
+}
+
+func CalculateCircleInFunctionalStyle(radius float64, f func(float64) float64) {
+	result := f(radius)
+	fmt.Println("Result: ", result)
+	fmt.Println("Thank you!!")
 }
