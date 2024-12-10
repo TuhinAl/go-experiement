@@ -188,3 +188,5 @@ func CalculateCircleInFunctionalStyle(radius float64, f func(float64) float64) {
 	fmt.Println("Result: ", result)
 	fmt.Println("Thank you!!")
 }
+
+// 

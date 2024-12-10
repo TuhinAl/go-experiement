@@ -149,3 +149,52 @@ func ImplementationTest() {
 	fmt.Println(orangeDto)
 
 }
+
+
+func InterfaceExplore()  {
+	// var shape Shape
+	rectangleShape := Rectangle{width: 15.00, length: 10.75}
+	triangleShape :=  Triangle{width: 8.30, height: 7.50}
+	circleShape := Circle{Radius: 7.75}
+	fmt.Println(rectangleShape.Area())
+	fmt.Println(triangleShape.Area())
+	fmt.Println(circleShape.Area())
+	fmt.Println(circleShape.Perimeter())
+	fmt.Println(circleShape.Diameter())
+}
+
+type Shape interface{
+	Area() float64
+	Perimeter()float64
+	Diameter()float64
+}
+
+type Circle struct{
+	Radius float64
+}
+type Rectangle struct{
+	width, length float64
+}
+type Triangle struct{
+	width, height float64
+}
+
+func (c Circle) Area() float64 {
+	return c.Radius * c.Radius * 3.1416
+}
+
+func (c Triangle) Area() float64 {
+	return c.width * c.height * 0.5
+}
+
+func (r Rectangle) Area() float64 {
+	return r.width * r.length
+}
+
+func (c Circle) Diameter() float64 {
+	return 2 * c.Radius
+}
+
+func (c Circle) Perimeter() float64 {
+	return 2 * c.Radius * 3.1416
+}
