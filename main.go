@@ -90,5 +90,6 @@ func main() {
 	// datatype.BlockAndScoping()
 	// datatype.SingleInput()
 	// function.CalculateCircle()
-	methodInterface.InterfaceExplore()
+	// methodInterface.InterfaceExplore()
+	methodInterface.InterfaceComposition()
 }

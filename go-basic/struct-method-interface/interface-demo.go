@@ -2,6 +2,7 @@ package interface_test
 
 import (
 	"fmt"
+	"math"
 
 	"github.com/google/uuid"
 )
@@ -150,32 +151,40 @@ func ImplementationTest() {
 
 }
 
-
-func InterfaceExplore()  {
-	// var shape Shape
+// global bo user management section
+// I will work on Qa feedback of CO module doc
+func InterfaceExplore() {
+	var shape Shape = Circle{Radius: 10.3}
+	fmt.Println(shape)
 	rectangleShape := Rectangle{width: 15.00, length: 10.75}
-	triangleShape :=  Triangle{width: 8.30, height: 7.50}
+	triangleShape := Triangle{width: 8.30, height: 7.50}
 	circleShape := Circle{Radius: 7.75}
 	fmt.Println(rectangleShape.Area())
 	fmt.Println(triangleShape.Area())
 	fmt.Println(circleShape.Area())
 	fmt.Println(circleShape.Perimeter())
 	fmt.Println(circleShape.Diameter())
+	fmt.Println("Type Switch")
+	TypeIdentify(55)
+	TypeIdentify(3.1416)
+	TypeIdentify("Dhaka")
+	TypeIdentify([]int{})
+
 }
 
-type Shape interface{
+type Shape interface {
 	Area() float64
-	Perimeter()float64
-	Diameter()float64
+	Perimeter() float64
+	Diameter() float64
 }
 
-type Circle struct{
+type Circle struct {
 	Radius float64
 }
-type Rectangle struct{
+type Rectangle struct {
 	width, length float64
 }
-type Triangle struct{
+type Triangle struct {
 	width, height float64
 }
 
@@ -197,4 +206,81 @@ func (c Circle) Diameter() float64 {
 
 func (c Circle) Perimeter() float64 {
 	return 2 * c.Radius * 3.1416
+}
+
+func TypeIdentify(i interface{}) {
+	switch v := i.(type) {
+	case string:
+		fmt.Printf("It is %T type\n", v)
+	case int:
+		fmt.Printf("It is %T type\n", v)
+	case float64:
+		fmt.Printf("It is %T type\n", v)
+	case []int:
+		fmt.Printf("It is slice type\n")
+	default:
+		fmt.Printf("Invalid Type %T\n", v)
+	}
+}
+
+// type IntSlice []int //custom type definition
+// func (i IntSlice) String() string {
+// 	var strs []string
+// 	for _, value := range i {
+// 		strs = append(strs, strconv.Itoa(value))
+// 	}
+// 	return "[" + strings.Join(strs, ";") + "]"
+
+// }
+
+func CustomTypeAndInterface() {
+
+	type Stringer interface {
+		String() string // যে টাইপটি এই মেথডটি ইমপ্লিমেন্ট করবে, সেটি fmt.Stringer হিসেবে ব্যবহার করা যাবে।
+	}
+
+}
+
+type Point struct {
+	X, Y float64
+}
+
+type Line struct {
+	Begin, End Point
+}
+
+type Path []Point
+
+type Distancer interface {
+	Distance() float64
+}
+
+func (l Line) Distance() float64 {
+	return math.Hypot(l.End.X-l.Begin.X, l.End.Y-l.Begin.Y)
+}
+func (p Path) Distance() (sum float64) {
+	for i := 1; i < len(p); i++ {
+		sum += Line{p[i-1], p[i]}.Distance()
+	}
+	return sum
+}
+
+func InterfaceComposition() {
+	side := Line{Point{1, 2}, Point{4, 6}}
+	// PrintFunc(side)
+	// paths := Path{Point{1, 3}, Point{2, 5}, Point{3, 7}, Point{3, 5}}
+	// PrintFunc(paths)
+	val := side.ScaleBy(2.5)
+	fmt.Println(val.Distance())
+	fmt.Println(Line{Point{1, 2}, Point{4, 6}}.ScaleBy(2).Distance()) //this is a Distance of new Line
+}
+
+func PrintFunc(d Distancer) {
+	fmt.Println(d.Distance())
+}
+
+func (l Line) ScaleBy(f float64) Line {
+	l.End.X += (f - 1) * (l.End.X - l.Begin.X)
+	l.End.Y += (f - 1) * (l.End.Y - l.Begin.Y)
+	return Line{l.Begin, Point{l.End.X, l.End.Y}}
 }
