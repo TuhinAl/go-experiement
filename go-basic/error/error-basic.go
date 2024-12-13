@@ -184,9 +184,31 @@ type IllegalArgumentError struct {
 	Code    int
 	Message string
 }
+type ValidatioError struct {
+	Field, Message string
+}
+type DatabaseConnectionError struct {
+	ConnectionHost, Port string
+}
+
+func (v *ValidatioError) Error() string {
+	return fmt.Sprintf("Field: %s\nMessage: %s\n", v.Field, v.Message)
+}
+
+func (d *DatabaseConnectionError) Error() string {
+	return fmt.Sprintf("Connection: %s\nPort: %s\n", d.ConnectionHost, d.Port)
+}
 
 func (e *IllegalArgumentError) Error() string {
 	return fmt.Sprintf("Code: %d\nMessage: %s\n", e.Code, e.Message)
+}
+
+func (e *IllegalArgumentError) Is(target error) bool {
+	t, ok := target.(*IllegalArgumentError)
+	if !ok {
+		return false
+	}
+	return e.Code == t.Code && e.Message == t.Message
 }
 
 func ErrorWrapAndUnWrap() {
@@ -199,9 +221,38 @@ func ErrorWrapAndUnWrap() {
 	if errors.Is(err, unknownError) {
 		fmt.Println("Error is unknown")
 	}
+
+	ErrorAs()
 }
 
 func fileProcessing(fileName string) error {
 	illegalError := &IllegalArgumentError{Code: 503, Message: "Internal"}
 	return fmt.Errorf("your file name %s cannot be open %w", fileName, illegalError)
+}
+
+func PerformValidation() error {
+	//simulate an error and wrap it
+	vError := &ValidatioError{Field: "email", Message: "There is no @ sign"}
+	return fmt.Errorf("action failed because of validation error: %w", vError)
+}
+
+func PerformDBAction() error {
+	//simulate an error and wrap it
+	return fmt.Errorf("validation error: %w", &DatabaseConnectionError{ConnectionHost: "localhost", Port: "8080"})
+}
+
+func ErrorAs() {
+	err := PerformValidation()
+	err2 := PerformDBAction()
+	var dbError *DatabaseConnectionError
+	var validationError *ValidatioError
+	if errors.As(err, &validationError) {
+		fmt.Printf("Validation Error: Field = %s\n", validationError.Field)
+
+	}
+	if errors.As(err2, &dbError) {
+		fmt.Printf("Database connection Error: host: %s port = %s\n", dbError.ConnectionHost, dbError.Port)
+
+	}
+	fmt.Println("Unknown error:", err)
 }
