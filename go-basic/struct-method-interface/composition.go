@@ -32,6 +32,20 @@ func (point ByPoint) Less(i, j int) bool {
 	return point.Teams[i].points < point.Teams[j].points
 }
 
+type errFoo struct {
+	err  error
+	path string
+}
+
+func (e errFoo) Error() string {
+return fmt.Sprintf("error is: %s: %s", e.path, e.err)
+}
+
+func XYZ(i int) *errFoo{
+	return nil
+}
+
+
 func ShortableInterface() {
 	argentina := Team{"Argentina", 1867}
 	france := Team{"France", 1859}
@@ -41,4 +55,19 @@ func ShortableInterface() {
 	teams := []Team{argentina, france, spain, england, brazil}
 	sort.Sort(ByName{teams})
 	fmt.Println(teams)
+
+	var err error = XYZ(1)
+	err2 := XYZ(1)
+	fmt.Println("err is: ",err)
+	fmt.Println("err2 is: ",err2)
+	if err2 == nil {
+		fmt.Println("err2 is nill")
+	}else{
+		fmt.Println("err2 is NOT nill")
+	}
+	if err == nil {
+		fmt.Println("err is nill")
+	}else{
+		fmt.Println("err is NOT nill")
+	}
 }

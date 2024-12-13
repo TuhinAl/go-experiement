@@ -159,3 +159,49 @@ func dnsErrorCheck() {
 	}
 	fmt.Println(domain)
 }
+
+func dividebyZero(a, b int) (int, error) {
+	if b == 0 {
+		// return 0.00, errors.New("Divide by Zero")
+		return 0.00, &IllegalArgumentError{Code: 501, Message: "Internal Server Error"}
+	}
+	return a / b, nil
+}
+
+func ErrorInGolang() {
+	// result, err := dividebyZero(10, 0)
+
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	return
+	// }
+	// fmt.Println("Result:", result)
+	// fmt.Println("==========================")
+	ErrorWrapAndUnWrap()
+}
+
+type IllegalArgumentError struct {
+	Code    int
+	Message string
+}
+
+func (e *IllegalArgumentError) Error() string {
+	return fmt.Sprintf("Code: %d\nMessage: %s\n", e.Code, e.Message)
+}
+
+func ErrorWrapAndUnWrap() {
+	fileName := "data.txt"
+	err := fileProcessing(fileName)
+	if err != nil {
+		fmt.Println(err)
+	}
+	unknownError := &IllegalArgumentError{Code: 503, Message: "Internal"}
+	if errors.Is(err, unknownError) {
+		fmt.Println("Error is unknown")
+	}
+}
+
+func fileProcessing(fileName string) error {
+	illegalError := &IllegalArgumentError{Code: 503, Message: "Internal"}
+	return fmt.Errorf("your file name %s cannot be open %w", fileName, illegalError)
+}

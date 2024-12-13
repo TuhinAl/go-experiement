@@ -9,7 +9,8 @@ import (
 	// structs "github.com/tuhinal/go-experiment/go-basic/structs"
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// function "github.com/tuhinal/go-experiment/go-basic/functions"
-	methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
+	// methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
+	errordemo "github.com/tuhinal/go-experiment/go-basic/error"
 )
 
 func main() {
@@ -91,5 +92,7 @@ func main() {
 	// datatype.SingleInput()
 	// function.CalculateCircle()
 	// methodInterface.InterfaceExplore()
-	methodInterface.InterfaceComposition()
+	// methodInterface.InterfaceComposition()
+	// methodInterface.ShortableInterface()
+	errordemo.ErrorInGolang()
 }
