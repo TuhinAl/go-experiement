@@ -168,6 +168,11 @@ func dividebyZero(a, b int) (int, error) {
 	return a / b, nil
 }
 
+func PanicInGolang() {
+	// BasicDBConfigMissingPanic()
+	HandlePanicUsingRecovery()
+}
+
 func ErrorInGolang() {
 	// result, err := dividebyZero(10, 0)
 
@@ -255,4 +260,27 @@ func ErrorAs() {
 
 	}
 	fmt.Println("Unknown error:", err)
+}
+
+func BasicDBConfigMissingPanic() {
+	dbConfig := ""
+	if dbConfig == "" {
+		panic("Database Configuration missing..")
+	}
+	fmt.Println("Connecting to database.......")
+}
+
+func HandlePanicUsingRecovery() {
+	defer func() {
+		r := recover()
+		if r != nil {
+			fmt.Println("Recovered from panic:", r)
+		}
+	}()
+	file, err := os.Open("student.txt")
+	if err != nil {
+		panic(fmt.Sprintf("failed to opend file: %v", err))
+	}
+	defer file.Close()
+	fmt.Println("File opened successfully!")
 }

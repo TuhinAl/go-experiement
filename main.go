@@ -94,5 +94,6 @@ func main() {
 	// methodInterface.InterfaceExplore()
 	// methodInterface.InterfaceComposition()
 	// methodInterface.ShortableInterface()
-	errordemo.ErrorInGolang()
+	// errordemo.ErrorInGolang()
+	errordemo.PanicInGolang()
 }
