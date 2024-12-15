@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"reflect"
 	"sync"
 	"time"
 )
@@ -283,4 +284,10 @@ func HandlePanicUsingRecovery() {
 	}
 	defer file.Close()
 	fmt.Println("File opened successfully!")
+}
+
+func basicReflection()  {
+	data := 40
+	fmt.Println("Type: ", reflect.TypeOf(data))
+	fmt.Println("Value: ", reflect.ValueOf(data))
 }
