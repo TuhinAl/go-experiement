@@ -174,6 +174,10 @@ func PanicInGolang() {
 	HandlePanicUsingRecovery()
 }
 
+func ReflectionInGolang() {
+	ReflectionWithComplexType()
+}
+
 func ErrorInGolang() {
 	// result, err := dividebyZero(10, 0)
 
@@ -285,6 +289,8 @@ func HandlePanicUsingRecovery() {
 	defer file.Close()
 	fmt.Println("File opened successfully!")
 }
+
+
 
 func basicReflection()  {
 	data := 40
