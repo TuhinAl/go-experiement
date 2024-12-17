@@ -290,10 +290,38 @@ func HandlePanicUsingRecovery() {
 	fmt.Println("File opened successfully!")
 }
 
-
-
-func basicReflection()  {
+func basicReflection() {
 	data := 40
 	fmt.Println("Type: ", reflect.TypeOf(data))
 	fmt.Println("Value: ", reflect.ValueOf(data))
+}
+
+const (
+	_ errKind = iota
+	noHeader
+	cantReadHeader
+	invalidHdrType
+	invalidChkLength
+)
+
+type errKind int
+type WaveError struct {
+	kind  errKind
+	value int
+	err   error
+}
+
+func (e WaveError) Error() string {
+	switch e.kind {
+	case noHeader:
+		return "no header (file too short?)"
+	case cantReadHeader:
+		return fmt.Sprintf("can't read header[%d]: %s", e.value, e.err.Error())
+	case invalidHdrType:
+		return "invalid header type"
+	case invalidChkLength:
+		return fmt.Sprintf("invalid chunk length: %d", e.value)
+
+	}
+
 }
