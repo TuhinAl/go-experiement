@@ -324,4 +324,8 @@ func (e WaveError) Error() string {
 
 	}
 
+	func handler(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello, world! from %s\n", r.URL.Path[1:])
+	}
+
 }
