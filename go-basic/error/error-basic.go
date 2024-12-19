@@ -327,5 +327,13 @@ func (e WaveError) Error() string {
 	func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, world! from %s\n", r.URL.Path[1:])
 	}
+	func handler2(w http.ResponseWriter, r *http.Request) {
+		response := map[string]string{
+			"message": "Hello, world!",
+			"path":    r.URL.Path[1:],
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(response)
+	}
 
 }
