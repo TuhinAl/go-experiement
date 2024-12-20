@@ -37,3 +37,14 @@ func ReflectionWithComplexType()  {
 	v.SetInt(42) // change value in Runtime 
 	fmt.Println("After:", x)  
 }
+
+func MapToStruct(m map[string]interface{}, s interface{}) {
+    v := reflect.ValueOf(s).Elem()
+
+    for key, value := range m {
+        field := v.FieldByName(key)
+        if field.IsValid() && field.CanSet() {
+            field.Set(reflect.ValueOf(value))
+        }
+    }
+}
