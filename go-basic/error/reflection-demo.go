@@ -1,6 +1,7 @@
 package error__test
 
 import (
+	"context"
 	"fmt"
 	"reflect"
 )
@@ -47,4 +48,13 @@ func MapToStruct(m map[string]interface{}, s interface{}) {
             field.Set(reflect.ValueOf(value))
         }
     }
+}
+
+func processRequest(ctx context.Context) {
+	userID := ctx.Value("userID")
+	if userID != nil {
+		fmt.Println("UserID:", userID)
+	} else {
+		fmt.Println("No UserID in context")
+	}
 }
