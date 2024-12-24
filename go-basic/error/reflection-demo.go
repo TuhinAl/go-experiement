@@ -3,6 +3,7 @@ package error__test
 import (
 	"context"
 	"fmt"
+	"net/http"
 	"reflect"
 )
 
@@ -57,4 +58,13 @@ func processRequest(ctx context.Context) {
 	} else {
 		fmt.Println("No UserID in context")
 	}
+}
+
+
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Welcome to the Home Page!")
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "About Us")
 }
