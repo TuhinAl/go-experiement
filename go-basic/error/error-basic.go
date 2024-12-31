@@ -1,15 +1,25 @@
-package error__test
+package errorTest
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"net"
+	"net/http"
 	"os"
 	"reflect"
 	"sync"
 	"time"
 )
-import "C"
+
+/**
+Error Handling Topic
+a. Understanding the error Interface
+b.The Importance of Error checking in GO
+c. Custom Error/ error raping
+d. Defer, Panic and recover
+*/
+
 
 /**
 //errors are value in go
@@ -175,7 +185,7 @@ func PanicInGolang() {
 }
 
 func ReflectionInGolang() {
-	ReflectionWithComplexType()
+	//ReflectionWithComplexType()
 }
 
 func ErrorInGolang() {
@@ -323,10 +333,13 @@ func (e WaveError) Error() string {
 		return fmt.Sprintf("invalid chunk length: %d", e.value)
 
 	}
+	return ""
+}
 
 	func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, world! from %s\n", r.URL.Path[1:])
 	}
+
 	func handler2(w http.ResponseWriter, r *http.Request) {
 		response := map[string]string{
 			"message": "Hello, world!",
@@ -336,4 +349,4 @@ func (e WaveError) Error() string {
 		json.NewEncoder(w).Encode(response)
 	}
 
-}
+

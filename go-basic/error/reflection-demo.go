@@ -1,4 +1,4 @@
-package error__test
+package errorTest
 
 import (
 	"context"
