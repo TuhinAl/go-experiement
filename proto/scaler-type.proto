@@ -1,0 +1,25 @@
+syntax="proto3"
+
+/*
+Scaler type:
+    Number, String, Boolean, Bytes
+*/
+
+enum AccountType{
+    SAVINGS = 0;
+    SALARY = 1;
+    LOAND = 2;
+}
+
+message Account{
+    uint32 id = 1;
+    string name = 2;
+    bytes thumbnail = 3;
+    bool isVerified = 4;
+    float height = 5;
+    //enum
+    enum AccountType = 6;
+    
+    //list
+    repeated string phoneNumber = 7;
+}

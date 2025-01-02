@@ -1,0 +1,41 @@
+syntax="proto3"
+
+enum DayOfWeek{
+    UNDEFINED = 0;
+    MONDAY = 1;
+    TUESDAY = 2;
+    WEDNESDAY = 3;
+    THURSDAY = 4;
+    FRIDAY = 5;
+    SATURDAY = 6;
+    SUNDAY = 7;
+}
+
+message Date{
+    uint32 year = 1;
+    uint32 month = 2;
+    uint32 day = 3;
+}
+
+message City{
+    string name = 1;
+    string zipCode = 2;
+    string countryName = 3;
+}
+
+message Street{
+    string streetName = 1;
+    City city = 2;
+}
+
+message Building{
+    string buildingName = 1;
+    string buildingNumber = 2;
+    Street street = 3;
+}
+
+message Address{
+    City city = 1;
+    Street street = 1;
+    Building building = 3;
+}
