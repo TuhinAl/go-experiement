@@ -1,8 +1,6 @@
 package main
 
-import (
-	// "fmt"
-
+import ( // "fmt"
 	// datatypeoperator "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// arrayslicemap "github.com/tuhinal/go-experiment/go-basic/arrayslicemap"
 	// IOput "github.com/tuhinal/go-experiment/go-basic/core-packages/input-output"
@@ -10,7 +8,9 @@ import (
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// function "github.com/tuhinal/go-experiment/go-basic/functions"
 	// methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
-	errordemo "github.com/tuhinal/go-experiment/go-basic/error"
+	 ref "github.com/tuhinal/go-experiment/go-basic/reflection"
+	//"log"
+	"net/http"
 )
 
 func main() {
@@ -96,5 +96,44 @@ func main() {
 	// methodInterface.ShortableInterface()
 	// errordemo.ErrorInGolang()
 	// errordemo.PanicInGolang()
-	errordemo.ReflectionInGolang()
+	// errordemo.ReflectionInGolang()
+
+	// ====================== Web App Basic ======================
+
+	/*
+		1. initiate a servemux router
+		2. register initHandler for "/" URL pattern
+	*/
+	/* mux := http.NewServeMux()
+	mux.HandleFunc("/", initHandler)
+	mux.HandleFunc("/student-save", saveStudent)
+
+	log.Print("Server started at localhost:8080")
+	err := http.ListenAndServe(":8080", mux)
+	log.Fatal(err) */
+	ref.Reflection()
+
+}
+
+
+func initHandler(write http.ResponseWriter, req *http.Request) {
+	if req.URL.Path != "/" {
+		http.NotFound(write, req)
+		return
+	}
+	write.Write([]byte("This is your landing page response"))
+}
+
+func saveStudent(write http.ResponseWriter, req *http.Request) {
+	if req.Method != http.MethodPost {
+		write.WriteHeader(http.StatusMethodNotAllowed)
+		write.Write([]byte("Method not allowed"))
+		return
+	}
+	// req.URL.
+	write.Header().Set("Content-Type", "application/json")
+	write.Header().Set("Allow", "POST")
+	write.Header().Set("data", "Tuhin")
+	// write.Write([]byte("Student created successfully"))
+	write.Write([]byte(`{"name": "Alauddin Tuhin", "age": 25, "email": "alu@example.com"}`))
 }
