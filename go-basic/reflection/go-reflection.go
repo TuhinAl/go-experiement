@@ -34,6 +34,8 @@ func Reflection() {
 	}
 	fmt.Println(ValidateReflection(user))
 	fmt.Println(getContactNumber(person))
+	fmt.Println(generateJSONSchema(reflect.TypeOf(user)))
+	fmt.Println(buildResponse(user))
 }
 
 func getContactNumber(s interface{}) string {
@@ -92,4 +94,72 @@ func ValidateReflection(s interface{}) []string {
 		errors = append(errors, "No error found")
 	}
 	return errors
+}
+
+
+// Example 2: Dynamic JSON Generation
+func generateJSONSchema(t reflect.Type) map[string]interface{} {
+    schema := make(map[string]interface{})
+    
+    if t.Kind() == reflect.Ptr {
+        t = t.Elem()
+    }
+    
+    schema["type"] = "object"
+    properties := make(map[string]interface{})
+    
+    for i := 0; i < t.NumField(); i++ {
+        field := t.Field(i)
+        fieldSchema := make(map[string]interface{})
+        
+        // Get JSON tag or use field name
+        jsonTag := field.Tag.Get("json")
+        if jsonTag == "" {
+            jsonTag = field.Name
+        }
+        
+        // Determine field type
+        switch field.Type.Kind() {
+        case reflect.String:
+            fieldSchema["type"] = "string"
+        case reflect.Int:
+            fieldSchema["type"] = "integer"
+        case reflect.Bool:
+            fieldSchema["type"] = "boolean"
+        case reflect.Map:
+            fieldSchema["type"] = "object"
+        }
+        
+        properties[jsonTag] = fieldSchema
+    }
+    
+    schema["properties"] = properties
+    return schema
+}
+
+func buildResponse(data interface{}) map[string]interface{} {
+    v := reflect.ValueOf(data)
+    response := make(map[string]interface{})
+    
+    // If pointer, get the underlying element
+    if v.Kind() == reflect.Ptr {
+        v = v.Elem()
+    }
+    
+    t := v.Type()
+    
+    for i := 0; i < t.NumField(); i++ {
+        field := t.Field(i)
+        value := v.Field(i)
+        
+        // Get JSON tag or use field name
+        jsonTag := field.Tag.Get("json")
+        if jsonTag == "" {
+            jsonTag = field.Name
+        }
+        
+        response[jsonTag] = value.Interface()
+    }
+    
+    return response
 }
