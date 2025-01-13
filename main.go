@@ -8,7 +8,8 @@ import ( // "fmt"
 	// datatype "github.com/tuhinal/go-experiment/go-basic/data-type-operator"
 	// function "github.com/tuhinal/go-experiment/go-basic/functions"
 	// methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
-	 ref "github.com/tuhinal/go-experiment/go-basic/reflection"
+	//  ref "github.com/tuhinal/go-experiment/go-basic/reflection"
+	errrorbasic "github.com/tuhinal/go-experiment/go-basic/error"
 	//"log"
 	"net/http"
 )
@@ -111,10 +112,9 @@ func main() {
 	log.Print("Server started at localhost:8080")
 	err := http.ListenAndServe(":8080", mux)
 	log.Fatal(err) */
-	ref.Reflection()
-
+	// ref.Reflection()
+	errrorbasic.ErrorBasic()
 }
-
 
 func initHandler(write http.ResponseWriter, req *http.Request) {
 	if req.URL.Path != "/" {

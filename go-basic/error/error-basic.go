@@ -16,7 +16,7 @@ import (
 Error Handling Topic
 a. Understanding the error Interface
 b.The Importance of Error checking in GO
-c. Custom Error/ error raping
+c. Custom Error/ error wraping
 d. Defer, Panic and recover
 */
 
@@ -30,7 +30,7 @@ Custom error, error Wrapping
 Defer Panic and recover
 */
 
-func main() {
+func ErrorBasic() {
 	//testDefer()
 	//openFile()
 	//convertToUndelyingTypeError()
@@ -148,7 +148,7 @@ func convertToUndelyingTypeError() {
 }
 
 func dnsErrorCheck() {
-	domain, error := net.LookupHost("golangbot123.com")
+	domain, error := net.LookupHost("golangbot.com")
 	if error != nil {
 		var dnsError *net.DNSError
 		if errors.As(error, &dnsError) {
