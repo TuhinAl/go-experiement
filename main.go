@@ -9,8 +9,8 @@ import ( // "fmt"
 	// function "github.com/tuhinal/go-experiment/go-basic/functions"
 	// methodInterface "github.com/tuhinal/go-experiment/go-basic/struct-method-interface"
 	//  ref "github.com/tuhinal/go-experiment/go-basic/reflection"
-	errrorbasic "github.com/tuhinal/go-experiment/go-basic/error"
-	//"log"
+	// errrorbasic "github.com/tuhinal/go-experiment/go-basic/error"
+	"log"
 	"net/http"
 )
 
@@ -105,15 +105,15 @@ func main() {
 		1. initiate a servemux router
 		2. register initHandler for "/" URL pattern
 	*/
-	/* mux := http.NewServeMux()
+	mux := http.NewServeMux()
 	mux.HandleFunc("/", initHandler)
 	mux.HandleFunc("/student-save", saveStudent)
 
 	log.Print("Server started at localhost:8080")
 	err := http.ListenAndServe(":8080", mux)
-	log.Fatal(err) */
+	log.Fatal(err)
 	// ref.Reflection()
-	errrorbasic.ErrorBasic()
+	// errrorbasic.ErrorBasic()
 }
 
 func initHandler(write http.ResponseWriter, req *http.Request) {
